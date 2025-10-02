@@ -145,7 +145,7 @@ function App() {
               rel="noopener noreferrer"
               className="text-orange-600 hover:text-orange-700 font-medium"
             >
-              BSCScan
+              {config.explorerName}
             </a>
           </p>
         </footer>

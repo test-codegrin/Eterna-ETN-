@@ -1,5 +1,6 @@
 import type { WalletState } from "../types";
 import { formatAddress, formatBalance } from "../utils/formatters";
+import { config } from "../config";
 
 interface WalletConnectProps {
   wallet: WalletState;
@@ -70,8 +71,8 @@ export function WalletConnect({ wallet, onConnect, onDisconnect, isLoading }: Wa
 
       <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100">
         <div>
-          <p className="text-xs text-gray-500 mb-1">BNB Balance</p>
-          <p className="text-lg font-semibold text-gray-900">{formatBalance(wallet.balance)} BNB</p>
+          <p className="text-xs text-gray-500 mb-1">{config.nativeCurrency.symbol} Balance</p>
+          <p className="text-lg font-semibold text-gray-900">{formatBalance(wallet.balance)} {config.nativeCurrency.symbol}</p>
         </div>
         <div>
           <p className="text-xs text-gray-500 mb-1">ETN Balance</p>
@@ -81,10 +82,10 @@ export function WalletConnect({ wallet, onConnect, onDisconnect, isLoading }: Wa
         </div>
       </div>
 
-      {wallet.chainId !== 97 && (
+      {wallet.chainId !== config.chainId && (
         <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
           <p className="text-sm text-yellow-800">
-            ⚠ Please switch to BSC Testnet to interact with the token
+            ⚠ Please switch to {config.networkName} to interact with the token
           </p>
         </div>
       )}

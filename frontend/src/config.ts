@@ -3,10 +3,11 @@ export const config = {
   chainId: parseInt(import.meta.env.VITE_CHAIN_ID || "11155111"),
   rpcUrl: import.meta.env.VITE_RPC_URL || "https://rpc.sepolia.org",
   explorerUrl: import.meta.env.VITE_EXPLORER_URL || "https://sepolia.etherscan.io",
-  networkName: "Sepolia Testnet",
+  explorerName: import.meta.env.VITE_EXPLORER_NAME || "Etherscan",
+  networkName: import.meta.env.VITE_NETWORK_NAME || "Sepolia Testnet",
   nativeCurrency: {
-    name: "ETH",
-    symbol: "ETH",
+    name: import.meta.env.VITE_NATIVE_CURRENCY_NAME || "ETH",
+    symbol: import.meta.env.VITE_NATIVE_CURRENCY_SYMBOL || "ETH",
     decimals: 18,
   },
 };
