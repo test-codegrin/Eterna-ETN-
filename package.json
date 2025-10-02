@@ -1,8 +1,8 @@
 {
   "name": "eterna-token-project",
   "version": "1.0.0",
-  "description": "Eterna (ETN) Token - BNB Smart Chain Testnet Starter Project",
-  "keywords": ["ethereum", "bnb", "bsc", "erc20", "token", "smart-contract"],
+  "description": "Eterna (ETN) Token - Sepolia Testnet Project",
+  "keywords": ["ethereum", "sepolia", "erc20", "token", "smart-contract"],
   "author": "CodeGrin Technologies",
   "license": "MIT",
   "workspaces": [
@@ -11,12 +11,14 @@
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "deploy": "hardhat run scripts/deploy.ts --network bscTestnet",
+    "deploy": "hardhat run scripts/deploy.ts --network sepolia",
+    "deploy:bsc": "hardhat run scripts/deploy.ts --network bscTestnet",
     "deploy:local": "hardhat run scripts/deploy.ts --network localhost",
     "node": "hardhat node",
     "frontend": "cd frontend && npm run dev",
     "frontend:build": "cd frontend && npm run build",
-    "verify": "hardhat verify --network bscTestnet"
+    "verify": "hardhat verify --network sepolia",
+    "verify:bsc": "hardhat verify --network bscTestnet"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.3",

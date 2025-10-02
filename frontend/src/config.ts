@@ -1,12 +1,12 @@
 export const config = {
-  contractAddress: import.meta.env.VITE_CONTRACT_ADDRESS || "0x0000000000000000000000000000000000000000",
-  chainId: parseInt(import.meta.env.VITE_CHAIN_ID || "97"),
-  rpcUrl: import.meta.env.VITE_BSC_TESTNET_RPC || "https://data-seed-prebsc-1-s1.binance.org:8545/",
-  explorerUrl: import.meta.env.VITE_EXPLORER_URL || "https://testnet.bscscan.com",
-  networkName: "BSC Testnet",
+  contractAddress: import.meta.env.VITE_CONTRACT_ADDRESS || "0xe15c27466253bc066f60e4f97bbb3dae995cc66f",
+  chainId: parseInt(import.meta.env.VITE_CHAIN_ID || "11155111"),
+  rpcUrl: import.meta.env.VITE_RPC_URL || "https://rpc.sepolia.org",
+  explorerUrl: import.meta.env.VITE_EXPLORER_URL || "https://sepolia.etherscan.io",
+  networkName: "Sepolia Testnet",
   nativeCurrency: {
-    name: "BNB",
-    symbol: "BNB",
+    name: "ETH",
+    symbol: "ETH",
     decimals: 18,
   },
 };
