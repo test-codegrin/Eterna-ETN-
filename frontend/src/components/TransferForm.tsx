@@ -58,12 +58,12 @@ export function TransferForm({ onTransfer, tokenSymbol, isDisabled }: TransferFo
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">Send {tokenSymbol}</h3>
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700 transition-colors">
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Send {tokenSymbol}</h3>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="recipient" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="recipient" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Recipient Address
           </label>
           <input
@@ -76,23 +76,23 @@ export function TransferForm({ onTransfer, tokenSymbol, isDisabled }: TransferFo
             }}
             placeholder="0x..."
             disabled={isDisabled || isLoading}
-            className={`w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all font-mono text-sm ${
+            className={`w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-ice-green-500 focus:border-ice-green-500 outline-none transition-all font-mono text-sm dark:bg-gray-700 dark:text-white ${
               errors.recipient
-                ? "border-red-300 bg-red-50"
-                : "border-gray-300 bg-white"
-            } disabled:bg-gray-100 disabled:cursor-not-allowed`}
+                ? "border-red-300 bg-red-50 dark:bg-red-900/20 dark:border-red-800"
+                : "border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700"
+            } disabled:bg-gray-100 dark:disabled:bg-gray-800 disabled:cursor-not-allowed`}
             aria-invalid={!!errors.recipient}
             aria-describedby={errors.recipient ? "recipient-error" : undefined}
           />
           {errors.recipient && (
-            <p id="recipient-error" className="mt-1 text-sm text-red-600">
+            <p id="recipient-error" className="mt-1 text-sm text-red-600 dark:text-red-400">
               {errors.recipient}
             </p>
           )}
         </div>
 
         <div>
-          <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="amount" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             Amount ({tokenSymbol})
           </label>
           <input
@@ -105,16 +105,16 @@ export function TransferForm({ onTransfer, tokenSymbol, isDisabled }: TransferFo
             }}
             placeholder="0.0"
             disabled={isDisabled || isLoading}
-            className={`w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all ${
+            className={`w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-ice-green-500 focus:border-ice-green-500 outline-none transition-all dark:bg-gray-700 dark:text-white ${
               errors.amount
-                ? "border-red-300 bg-red-50"
-                : "border-gray-300 bg-white"
-            } disabled:bg-gray-100 disabled:cursor-not-allowed`}
+                ? "border-red-300 bg-red-50 dark:bg-red-900/20 dark:border-red-800"
+                : "border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700"
+            } disabled:bg-gray-100 dark:disabled:bg-gray-800 disabled:cursor-not-allowed`}
             aria-invalid={!!errors.amount}
             aria-describedby={errors.amount ? "amount-error" : undefined}
           />
           {errors.amount && (
-            <p id="amount-error" className="mt-1 text-sm text-red-600">
+            <p id="amount-error" className="mt-1 text-sm text-red-600 dark:text-red-400">
               {errors.amount}
             </p>
           )}
@@ -123,7 +123,7 @@ export function TransferForm({ onTransfer, tokenSymbol, isDisabled }: TransferFo
         <button
           type="submit"
           disabled={isDisabled || isLoading}
-          className="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium px-6 py-2.5 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-ice-green-600 hover:bg-ice-green-700 dark:bg-ice-green-500 dark:hover:bg-ice-green-600 text-white font-medium px-6 py-2.5 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? (
             <span className="flex items-center justify-center gap-2">
@@ -152,7 +152,7 @@ export function TransferForm({ onTransfer, tokenSymbol, isDisabled }: TransferFo
       </form>
 
       {isDisabled && (
-        <p className="mt-4 text-sm text-gray-600 text-center">
+        <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 text-center">
           Please connect your wallet to send tokens
         </p>
       )}

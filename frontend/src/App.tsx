@@ -3,6 +3,7 @@ import { WalletConnect } from "./components/WalletConnect";
 import { TransferForm } from "./components/TransferForm";
 import { TransferHistory } from "./components/TransferHistory";
 import { ToastContainer } from "./components/Toast";
+import { ThemeToggle } from "./components/ThemeToggle";
 import { useWallet } from "./hooks/useWallet";
 import { useToken } from "./hooks/useToken";
 import { useToast } from "./hooks/useToast";
@@ -58,27 +59,28 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors">
       <ToastContainer toasts={toasts} onClose={removeToast} />
 
-      <header className="bg-white shadow-sm border-b border-gray-200">
+      <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-ice-green-500 to-ice-green-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">E</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Eterna Token</h1>
-                <p className="text-sm text-gray-600">CodeGrin Technologies</p>
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Eterna Token</h1>
+                <p className="text-sm text-gray-600 dark:text-gray-400">CodeGrin Technologies</p>
               </div>
             </div>
 
             <div className="flex items-center gap-4">
               <div className="text-right">
-                <p className="text-xs text-gray-500">Network</p>
-                <p className="text-sm font-medium text-gray-900">{config.networkName}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">Network</p>
+                <p className="text-sm font-medium text-gray-900 dark:text-white">{config.networkName}</p>
               </div>
+              <ThemeToggle />
             </div>
           </div>
         </div>
@@ -86,10 +88,10 @@ function App() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {config.contractAddress === "0x0000000000000000000000000000000000000000" && (
-          <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+          <div className="mb-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
             <div className="flex items-start gap-3">
               <svg
-                className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0"
+                className="w-5 h-5 text-yellow-600 dark:text-yellow-500 mt-0.5 flex-shrink-0"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -100,10 +102,10 @@ function App() {
                 />
               </svg>
               <div>
-                <h3 className="text-sm font-medium text-yellow-800">Contract Not Configured</h3>
-                <p className="mt-1 text-sm text-yellow-700">
-                  Please deploy the contract and update the <code className="bg-yellow-100 px-1 py-0.5 rounded">VITE_CONTRACT_ADDRESS</code> in{" "}
-                  <code className="bg-yellow-100 px-1 py-0.5 rounded">frontend/.env</code>
+                <h3 className="text-sm font-medium text-yellow-800 dark:text-yellow-400">Contract Not Configured</h3>
+                <p className="mt-1 text-sm text-yellow-700 dark:text-yellow-300">
+                  Please deploy the contract and update the <code className="bg-yellow-100 dark:bg-yellow-900/50 px-1 py-0.5 rounded">VITE_CONTRACT_ADDRESS</code> in{" "}
+                  <code className="bg-yellow-100 dark:bg-yellow-900/50 px-1 py-0.5 rounded">frontend/.env</code>
                 </p>
               </div>
             </div>
@@ -136,14 +138,14 @@ function App() {
           />
         )}
 
-        <footer className="mt-12 text-center text-sm text-gray-500">
+        <footer className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400">
           <p>
             View contract on{" "}
             <a
               href={`${config.explorerUrl}/address/${config.contractAddress}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-orange-600 hover:text-orange-700 font-medium"
+              className="text-ice-green-600 dark:text-ice-green-400 hover:text-ice-green-700 dark:hover:text-ice-green-300 font-medium"
             >
               {config.explorerName}
             </a>

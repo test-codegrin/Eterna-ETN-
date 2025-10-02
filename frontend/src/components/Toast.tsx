@@ -9,15 +9,15 @@ export function Toast({ toast, onClose }: ToastProps) {
   const getTypeStyles = () => {
     switch (toast.type) {
       case "success":
-        return "bg-green-50 border-green-500 text-green-800";
+        return "bg-ice-green-50 dark:bg-ice-green-900/20 border-ice-green-500 text-ice-green-800 dark:text-ice-green-300";
       case "error":
-        return "bg-red-50 border-red-500 text-red-800";
+        return "bg-red-50 dark:bg-red-900/20 border-red-500 text-red-800 dark:text-red-300";
       case "warning":
-        return "bg-yellow-50 border-yellow-500 text-yellow-800";
+        return "bg-yellow-50 dark:bg-yellow-900/20 border-yellow-500 text-yellow-800 dark:text-yellow-300";
       case "info":
-        return "bg-blue-50 border-blue-500 text-blue-800";
+        return "bg-blue-50 dark:bg-blue-900/20 border-blue-500 text-blue-800 dark:text-blue-300";
       default:
-        return "bg-gray-50 border-gray-500 text-gray-800";
+        return "bg-gray-50 dark:bg-gray-800 border-gray-500 text-gray-800 dark:text-gray-300";
     }
   };
 
